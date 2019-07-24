@@ -20,7 +20,10 @@ import {
   getSafeTimezoneTime,
   getToday,
 } from '../../utils/date';
-import { getWorkoutsByRange } from '../../database/services/WorkoutService';
+import {
+  getWorkoutsByRange,
+  deleteWorkoutComments,
+} from '../../database/services/WorkoutService';
 import WorkoutList from '../../components/WorkoutList';
 import type { WorkoutSchemaType } from '../../database/types';
 import HeaderIconButton from '../../components/HeaderIconButton';
@@ -143,6 +146,9 @@ class HomeScreen extends Component<Props, State> {
           <WorkoutComments
             comments={workouts[selectedDay].comments}
             day={selectedDay}
+            onRemovePress={() =>
+              deleteWorkoutComments(workouts[selectedDay].id)
+            }
           />
         ) : null}
       </View>
