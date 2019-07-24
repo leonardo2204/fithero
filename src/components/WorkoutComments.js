@@ -15,6 +15,7 @@ type Props = {
   day: string,
   navigation: NavigationType<{ day: string }>,
   theme: ThemeType,
+  onRemovePress: () => void,
 };
 
 class WorkoutComments extends React.Component<Props> {
